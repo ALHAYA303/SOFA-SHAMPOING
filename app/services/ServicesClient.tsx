@@ -446,7 +446,7 @@ export default function ServicesPage() {
         {/* Fabric Protection Upsell */}
         <section className="section-sm" style={{ borderBottom: '1px solid var(--line)', background: 'var(--bg-elev)' }}>
           <div className="container-x">
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }}>
+            <div className="fabric-shield-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }}>
               <div>
                 <div className="section-tag">Upsell Service</div>
                 <h2 style={{ fontSize: 'clamp(24px, 3vw, 42px)', marginBottom: 16 }}>
@@ -483,11 +483,6 @@ export default function ServicesPage() {
               </div>
             </div>
           </div>
-          <style jsx>{`
-            @media (max-width: 768px) {
-              div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; gap: 32px !important; }
-            }
-          `}</style>
         </section>
 
         <ServiceCoverageSection />
@@ -497,6 +492,7 @@ export default function ServicesPage() {
       <style jsx>{`
         @media (max-width: 768px) {
           .service-detail-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+          .fabric-shield-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
         }
       `}</style>
     </>
