@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import './globals.css';
 import { Archivo, Inter, JetBrains_Mono, Fraunces } from 'next/font/google';
 
@@ -316,7 +317,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       </head>
-      <body><div id="page-wrapper" style={{ overflowX: 'hidden', width: '100%', position: 'relative' }}>{children}</div></body>
+      <body>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-YPV76TBPNB" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-YPV76TBPNB');
+        `}</Script>
+        <div id="page-wrapper" style={{ overflowX: 'hidden', width: '100%', position: 'relative' }}>{children}</div>
+      </body>
     </html>
   );
 }
